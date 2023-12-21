@@ -28,6 +28,7 @@ main {
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-radius: 2rem;
 }
 
 .left-section {
@@ -69,12 +70,21 @@ main {
   font-weight: 500;
 }
 
-.news-section input {
+.email-header h6:nth-child(2) {
+  color: red;
+}
+
+.input-success {
   width: 100%;
   border: 1px solid #e4dbdb;
   margin-bottom: 1.5rem;
   border-radius: 0.4rem;
   padding: 0.7rem 1rem 0.7rem 1.2rem;
+}
+
+.input-error {
+  background-color: rgb(206, 72, 76);
+  border: 2px solid #413d3d;
 }
 
 .actions {
@@ -94,4 +104,57 @@ main {
   padding: 0.9rem;
   border-radius: 0.4rem;
   border: 1px solid #fff;
+}
+
+.news-section button:hover {
+  cursor: pointer;
+  background-color: rgb(54, 35, 54);
+  transition: all 0.3s ease-in-out;
+}
+
+.success {
+  background-color: #fff;
+  width: 24rem;
+  height: 40vh;
+  border-radius: 10px;
+  padding: 1rem 3rem 2rem 3rem;
+  font-weight: bold;
+}
+
+.success-icon {
+  color: rgb(248, 111, 62);
+  font-size: 2.9rem;
+  margin-top: 1rem;
+}
+
+.success h3 {
+  font-size: 2rem;
+}
+
+.success p {
+  font-size: 0.9rem;
+  margin-top: 1.6rem;
+  color: #9b9090;
+}
+
+.success p strong {
+  font-weight: bold;
+  color: rgb(88, 81, 81);
+}
+
+.success button {
+  width: 100%;
+  margin-top: 1.6rem;
+  color: #fff;
+  background-color: rgb(87, 84, 87);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid #fff;
+  font-size: 0.9rem;
+}
+
+.success button:hover {
+  cursor: pointer;
+  background-color: rgb(54, 35, 54);
+  transition: all 0.3s ease-in-out;
 }

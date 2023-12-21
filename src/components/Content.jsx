@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { items } from './Item'
-import Actions from './Actions'
 import Success from './Success';
+import DefaultModal from './DefaultModal';
 
 const Content = () => {
 
@@ -19,36 +18,25 @@ const Content = () => {
     }
     setErrorMessage(false);
     setSubmitSuccess(true);
+    // setShowModal2(true);
   }
 
-  if(submitSuccess) {
-    <Success email={email} />
-  }
+
   return (
     <main>
-      <section className='main-section'>      
-        <div className="left-section">
-          <div className="news-section">
-            <h3>Stay updated!</h3>
-            <p>Join 60,000+ product managers receiving monthly updates on:</p>
-            {items.map((item) => (
-              <Actions key={item.id} {...item} />
-            ))}
-            <div className='email-header'>
-              <h6>Email address</h6>
-              {errorMessage && <h6 className='invalid'>Valid email required</h6>}
-            </div>
-            <form onSubmit={handleSubmit} className='form-submit'>
-              <input type='text' name='email' placeholder='email@company.com' value={email} onChange={(e) => setEmail(e.target.value)} />
-              <button type='submit'>Subscribe to monthly newsletter</button>
-            </form>
-          </div>
-        </div>
+      {!submitSuccess && (
+        <DefaultModal 
+          errorMessage={errorMessage} 
+          handleSubmit={handleSubmit} 
+          setEmail={setEmail}
+          email={email}
+          submitSuccess={submitSuccess}
+        />
+      )}
 
-        <div className="right-section">
-            <div className="styled-image"></div>
-        </div>
-      </section>
+      {submitSuccess && (
+        <Success email={email} setSubmitSuccess={setSubmitSuccess} setEmail={setEmail} />
+      )}
     </main>
   )
 }
